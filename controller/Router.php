@@ -44,13 +44,12 @@ class Router
         }
         else {
           throw new \Exception("Page introuvable", 1);
-
         }
-      }
+      } 
 
       else {
         require_once('controller/ControllerAccueil.php');
-        $this->ctrl = new ControllerAccueil($url);
+        $this->_ctrl = new ControllerAccueil($url);
       }
 
     } catch (\Exception $e) {

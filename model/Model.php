@@ -17,7 +17,7 @@ abstract class Model
   //fonction de connexion par defaut a la bdd
   protected function getBdd(){
     if (self::$_bdd == null) {
-      self::setBdd();
+        self::setBdd();
       return self::$_bdd;
     }
   }
