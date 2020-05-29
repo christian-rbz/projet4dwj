@@ -112,7 +112,7 @@ class Comments
 
     public function setSignaled($signaled)
     {
-        if ($signaled == 0 OR $signaled == 1)
+        if ($signaled == 0 OR $signaled = 1)
         {
             $this->_signaled = $signaled;
         }

@@ -1,18 +1,17 @@
 <?php
 
-class Manager
+class Manager 
 {
-    
-    protected function dbConnect() 
+    public function __construct()
     {
         try
         {
-            $this->db = new \PDO('mysql:host=localhost;dbname=projet4_mvc;charset=utf8', 'root', '', array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
-            return $this->db;
+            $this->_db = new PDO('mysql:host=localhost;dbname=projet4jf;charset=utf8', 'root', '',
+            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         catch(Exception $e)
         {
-            throw new Exception('Erreur : ' . $e->getMessage());
-        }
+            die('erreur : '.$e->getMessage());
+        } 
     }
 }

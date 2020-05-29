@@ -57,7 +57,7 @@ class Chapters
     {
         if (is_string($title))
         {
-            $this->_title = $title;
+            $this->_title = htmlspecialchars($title);
         }
     }
 
@@ -65,7 +65,7 @@ class Chapters
     {
         if (is_string($content))
         {
-            $this->_content = $content;
+            $this->_content = htmlspecialchars($content);
         }
     }
 }

@@ -1,4 +1,3 @@
-<?php $title = 'le blog de Jean Forteroche'; ?>
 
 <section class="connexion_header">
     <h1>Espace Connexion</h1>

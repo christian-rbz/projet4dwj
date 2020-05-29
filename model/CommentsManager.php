@@ -12,7 +12,7 @@ class CommentsManager extends Manager
         $req_join = $this->_db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter ORDER BY date_comment DESC');
         $req_join->execute();
 
-        while ($data = $req->fetch(PDO::FETCH_ASSOC))        
+       while ($data = $req->fetch(PDO::FETCH_ASSOC))        
         {
             while ($data = $req_join->fetch(PDO::FETCH_ASSOC))           
             {
@@ -34,11 +34,20 @@ class CommentsManager extends Manager
 
     public function getSignal($comments)
     {
-        $req_signal = $this->_db->prepare('UPDATE comments SET signaled = 1 WHERE id = :idChapter');
+        $req_signal = $this->_db->prepare('UPDATE comments SET signaled =signaled+1 WHERE id = :idChapter');
         $req_signal->execute([
             'idChapter' => $comments->getId()
         ]);
     } 
+
+    public function deleteSignal($comments)
+    {
+        $req_signal = $this->_db->prepare('UPDATE comments SET signaled =signaled-1 WHERE id = :idChapter');
+        $req_signal->execute([
+            'idChapter' => $comments->getId()
+        ]);
+    } 
+
 
     public function getDelete($commentsDelete)
     {
@@ -48,6 +57,7 @@ class CommentsManager extends Manager
         ]);
     }
 
+
     public function getListSignaled()
     {
         $list = [];
@@ -55,10 +65,10 @@ class CommentsManager extends Manager
         $req = $this->_db->prepare('SELECT id_chapter, pseudo, comment, date_comment FROM comments WHERE signaled = 1 ORDER BY date_comment DESC');
         $req->execute();
 
-        $req_join = $this->_db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter AND signaled = 1 ORDER BY date_comment DESC');
+        $req_join = $this->_db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter AND signaled >= 1 ORDER BY date_comment DESC');
         $req_join->execute();
 
-        while ($data = $req->fetch(PDO::FETCH_ASSOC))        
+       while ($data = $req->fetch(PDO::FETCH_ASSOC))        
         {
             while ($data = $req_join->fetch(PDO::FETCH_ASSOC))           
             {
@@ -75,12 +85,12 @@ class CommentsManager extends Manager
         $req = $this->_db->prepare('SELECT id, pseudo, comment, date_comment, signaled FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
         $req->execute(array(
             $_GET['id']));
-
-        while ($data = $req->fetch(PDO::FETCH_ASSOC))
-        {
-            $list [] = new Comments($data); 
-        }
+        $data = $req->fetchAll();
+        // while ($data = $req->fetch(PDO::FETCH_ASSOC))
+        // {
+        //     $list [] = new Comments($data); 
+        // }
         
-        return $list;
+        return $data;
     }
 }

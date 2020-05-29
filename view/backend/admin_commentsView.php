@@ -1,4 +1,3 @@
-<?php $title = 'le blog de Jean Forteroche'; ?>
 
 <header class="index_header">
     <a href="index.php?action=home"><h1>Accueil</h1></a>
@@ -14,6 +13,11 @@
 <section class="admin_comments">
     <div class="show_all_comments">
         <h2>Tous les commentaires</h2>
+        <!-- message de succès quand le commentaire a été supprimé -->
+         <?php if(isset($_SESSION)) { 
+            include('view/flashMessages.php');
+        } ?>
+        
         <?php if (!empty($comment))
             { foreach ($comment as $cle => $elements)
                 { ?>
@@ -28,13 +32,17 @@
     
     <div class="comments_signal">
         <h2>Commentaires signalés</h2>
+        
         <?php if (!empty($commentSignaled))
             { foreach ($commentSignaled as $cle => $elements)
                 { ?>
             <p class="title_ref"><?= $elements['title'] ?></p><br/>
             <p>[ <?= $elements['date_comment'] ?> ] Par <?= $elements['pseudo'] ?>:
-            <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&delete"><i class="fas fa-times"></i></a></p><br/>
+            </p><br/>
             <p class="show_comment"><?= $elements['comment'] ?><br/>
+
+            <p> Nombre de signalement : <?= $elements['signaled'] ?><a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&deleteSignal"> <i class="fas fa-minus-square"></i></a></p><br/>
+
             <hr class="inser_comment">
             <?php } 
         } ?>

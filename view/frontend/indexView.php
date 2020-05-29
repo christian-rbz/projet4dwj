@@ -1,20 +1,18 @@
-<?php $title = 'le blog de Jean Forteroche'; ?>
-
 <section class="index_title">
     <h1>Billet simple pour l'Alaska</h1>
-    <h2>Jean Forteroche</h2>
-    <h3>Bonjour et bienvenue dans mon blog</h3>
+    <h2>Jean Forteroche</h2><br/>
+    <h3>Découvrez chaque semaine, un chapitre de mon nouveau livre</h3>
 
 </section>
 <section class="index_chapters">
     <div class="pagination">
         <?php foreach ($chapters as $chapter) { ?>
             <div class="chapters_published">
-                <h3><?= $chapter->getTitle() ?></h3><br />
-                <a href="index.php?action=chapter&id=<?= $chapter->getId() ?>">Lire</a>
+                <h3><?= $chapter['title'] ?></h3><br/>
+                <a href="index.php?action=chapter&id=<?= $chapter['id'] ?>">Lire</a>
             </div>
-        <?php } ?>
-
+       <?php } ?>
+       
         <div class="pagePagination">
             <?php for ($i = 1; $i <= $nbPage; $i++) {
                 if ($i == $cPage) {
