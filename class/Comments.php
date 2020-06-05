@@ -68,7 +68,7 @@ class Comments
         return $this->_date_comment;
     }
 
-    public function getSignaled()
+    public function signalComment()
     {
         return $this->_signaled;
     }

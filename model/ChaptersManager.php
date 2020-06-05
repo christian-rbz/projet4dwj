@@ -5,9 +5,7 @@ class ChaptersManager extends Manager
    public function get($id) 
     {
         $req = $this->_db->prepare('SELECT * FROM chapters WHERE id = ?');
-        $req->execute([
-            $id
-        ]);
+        $req->execute([$id]);
         $chapter = $req->fetch(); 
         
         return new Chapters($chapter);  
@@ -21,9 +19,7 @@ class ChaptersManager extends Manager
         $data = $req->execute();
         
         $data = $req->fetchAll();
-        // {
-        //     $list [] = new Chapters($data);
-        // }
+   
         return $data;
     }
 
@@ -32,29 +28,28 @@ class ChaptersManager extends Manager
         $req = $this->_db->prepare('INSERT INTO chapters (title, content) VALUES ( ?, ?)');
         $req->execute([
             $chapter->getTitle(),
-            htmlspecialchars_decode($chapter->getContent()),
+            $chapter->getContent(),
         ]);
     }
 
-    public function update(Chapters $chapter)
+    public function updateChapter(Chapters $chapter)
     {
         $req_modif = $this->_db->prepare('UPDATE chapters SET title = :title, content = :content  WHERE id = :id');
         $req_modif->execute([
             'id' => $chapter->getId(),
-            'title'  => htmlspecialchars_decode($chapter->getTitle()),
-            'content' => htmlspecialchars_decode($chapter->getContent())     
+            'title'  => $chapter->getTitle(),
+            'content' => $chapter->getContent()     
         ]);
     }
 
     public function deleteChapter($chapterDelete)
     {
-        $req_delete = $this->_db->prepare('DELETE FROM chapters WHERE id = :id');
-        $req_delete->execute([
-            'id' => $chapterDelete->getId() 
-        ]);
+        $req_delete = $this->_db->prepare('DELETE FROM chapters WHERE id= :id');
+        $req_delete->execute(['id' => $chapterDelete->getId()], );
+
     }
 
-    public function getCount()
+    public function countChapters()
     {
         $req = $this->_db->prepare('SELECT COUNT(id) as nbArt FROM chapters');
         $req->execute();
@@ -71,9 +66,7 @@ class ChaptersManager extends Manager
         $req->execute();
 
         $data = $req->fetchAll();
-        // {
-        //     $list [] = new Chapters($data);
-        // }
+    
         
         return $data;
     }

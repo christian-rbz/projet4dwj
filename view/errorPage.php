@@ -1,4 +1,3 @@
-<!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>

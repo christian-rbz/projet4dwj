@@ -25,7 +25,7 @@
 </section>
 
 <section class="admin_chapters" id="editChapters_backend"> 
-    <h1>Editer un chapitres</h1>                      
+    <h1>Editer ou supprimer un chapitres</h1>                      
     <?php if (!empty($chapter))
     { foreach ($chapter as $cle => $elements) { ?>
         <div class="chapters_published">

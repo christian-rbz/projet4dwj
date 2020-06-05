@@ -65,7 +65,7 @@ class Chapters
     {
         if (is_string($content))
         {
-            $this->_content = htmlspecialchars($content);
+            $this->_content = $content;
         }
     }
 }

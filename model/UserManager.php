@@ -2,17 +2,8 @@
 
 class UserManager extends Manager
 {
-    public function verifyUser()
-    {
-        $req = $this->_db->prepare('SELECT * FROM user');
-        $req->execute();
-        $data = $req->fetch();
     
-        return $data;
-    }
-
-
-    public function getConnect(User $profil)
+    public function connectUser(User $profil)
     {
         $req = $this->_db->prepare('SELECT * FROM user WHERE email= :email');
         $req->execute(['email' => $profil->getEmail()]);

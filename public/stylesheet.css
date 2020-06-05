@@ -941,6 +941,7 @@ footer {
 			.index_header h1 {
 				padding-left: 53px!important;
 			}
+
 			header h1,
 			header h3 {
 				font-size: 1em!important; 
@@ -968,6 +969,11 @@ footer {
 			.index_header h1 {
 				padding-left: 53px!important;
 			}
+
+			.index_title h2 {
+				text-align: center;
+			}
+
 			header h1,
 			header h3 {
 				font-size: 1em!important; 
@@ -995,6 +1001,8 @@ footer {
 			.index_header h1 {
 				padding-left: 53px!important;
 			}
+
+
 			header h1,
 			header h3 {
 				font-size: 1em!important; 

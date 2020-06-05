@@ -2,6 +2,7 @@
 
 session_start();
 
+
 require("model/Manager.php");
 require("model/ChaptersManager.php");
 require("model/CommentsManager.php");
@@ -38,3 +39,4 @@ if (isset($_GET['action'])) {
 } else {
     home();
 }
+      

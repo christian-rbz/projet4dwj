@@ -36,12 +36,12 @@
 
 <body>
 	<header>
-		<a href="index.php?action=home"><h1>Accueil</h1></a>
+		<a href="index.php?action=home">Accueil</a>
 		<a href="index.php?action=biography">Biographie</a>
 		<?php if (isset($_SESSION['user'])) {
-			echo '<a href="index.php?action=admin"><h3>Admin<h3></a>';
+			echo '<a href="index.php?action=admin">Admin</a>';
 		} else {
-		echo '<a href="index.php?action=login"><h3>Connexion<h3></a>';
+		echo '<a href="index.php?action=login">Connexion</a>';
 		} 
 		
 		?>
@@ -59,3 +59,4 @@
 </footer>
 
 </html>
+
