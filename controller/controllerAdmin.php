@@ -19,7 +19,7 @@ function admin_chapters()
     $chapter = $chapterManager->getList(); 
 
 
-    // conditions pour publier nouveau chapitre
+    // Conditions pour publier nouveau chapitre
     if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) 
     { 
         $chapters = new Chapters([
@@ -33,7 +33,7 @@ function admin_chapters()
         exit();
     }
 
-     // pour supprime un chapitre 
+     // Pour supprime un chapitre 
     if (isset($_GET['deleteChapter']) ) {
         
         $chapterDelete = new Chapters(['id' => $_GET['id']]);
@@ -59,7 +59,7 @@ function admin_chapters()
 
 
 
-// gestion des commentaires 
+// Gestion des commentaires 
 function admin_comments()
 {
     $sessionConnect = sessionConnect();
@@ -72,7 +72,7 @@ function admin_comments()
     $commentSigManager = new CommentsManager();
     $commentSignaled = $commentSigManager->getListSignaled();
 
-    // pour supprimer un commentaire 
+    // Pour supprimer un commentaire 
     if (isset($_GET['delete'])) {
         $commentsDelete = new Comments(['id' => $_GET['id'] ]);
         $commentsManager = new CommentsManager();
@@ -82,7 +82,7 @@ function admin_comments()
         exit();
     }
 
-    // pour enlever un signalement du commentaire (nbre signalement-1)
+    // Pour enlever un signalement du commentaire (nbre signalement-1)
     if (isset($_GET['deleteSignal'])) {
         $commentsDelete = new Comments([
             'id' => $_GET['id']
@@ -121,7 +121,12 @@ function update()
     $chapterManager = new ChaptersManager(); 
     $chapter = $chapterManager->get($_GET['id']);  
 
-    // ajouter le changement a la bdd dans le chapitre existant
+    // Si l'id du chapitre n'existe pas => retour page d'accueil 
+    if ($chapter == false) {
+        header('Location: index.php?action=admin');
+    }
+
+    // Ajouter le changement a la bdd dans le chapitre existant
     if (isset($_POST['title']) or isset($_POST['content'])) {
         $chapter = new Chapters([
             'id' => $_GET['id'],
@@ -136,7 +141,7 @@ function update()
         exit();
     }
 
-    // creation des variables pour la updateView
+    // Creation des variables pour la updateView
     $chapterTitleUpdate = $chapter->getTitle();
     $chapterContentUpdate = $chapter->getContent();
 

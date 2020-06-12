@@ -47,7 +47,7 @@ class CommentsManager extends Manager
         $req_delete->execute(['id' => $commentsDelete->getId()]);
     }
 
-    // on supprime les commentaires du chapitre supprimé par l'administrateur
+    // On supprime les commentaires du chapitre supprimé par l'administrateur
       public function deleteAllCommentsChapter($chapterId)
     {
         $req_delete = $this->_db->prepare('DELETE FROM comments WHERE id_chapter = :chapterId');
@@ -55,6 +55,7 @@ class CommentsManager extends Manager
     }
 
 
+    // Afficher la liste des signalements de commentaires
     public function getListSignaled()
     {
         $list = [];

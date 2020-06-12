@@ -14,8 +14,8 @@
 
             <?php foreach ($commentedChapter as $cle => $elements) { ?>
                 
-                <p>[ <?= $elements['date_comment'] ?> ] Par <?= $elements['pseudo'] ?> (<a href="index.php?action=chapter&id=<?= $chapterId ?>&idComment=<?= $elements['id'] ?>&signaled#comm" class="signal">Signaler</a>): </p><br/> 
-                <p class="comment_published"><?= $elements['comment'] ?><br />                                       
+                <p>[ <?= $elements['date_comment'] ?> ] Par <?= htmlspecialchars($elements['pseudo']) ?> (<a href="index.php?action=chapter&id=<?= $chapterId ?>&idComment=<?= $elements['id'] ?>&signaled#comm" class="signal">Signaler</a>): </p><br/> 
+                <p class="comment_published"><?= htmlspecialchars($elements['comment']) ?><br />                                       
                 <?php if (isset($_SESSION) AND isset($_GET['signaled']) AND $elements['signaled'] == 1)  {; 
                     } ?>   
                     

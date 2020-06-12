@@ -12,7 +12,7 @@
     <!-- Fontawesome Icones -->
     <script src="https://kit.fontawesome.com/504cd5157f.js"></script>
 
-    <!-- code TinyMCE pour le backend, rediger message-->
+    <!-- Code TinyMCE pour le backend, rediger message-->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     
     <script>
@@ -37,12 +37,14 @@
 
 <body>
     <header class="index_header">
-        <a href="index.php?action=home">
-            <h1>Accueil</h1>
-        </a>
-        <a href="index.php?action=logout">
-            <h3>Déconnexion<h3>
-        </a>
+        <ul>
+        <li><a href="index.php?action=home">
+            Accueil
+        </a></li>
+        <li><a href="index.php?action=logout">
+            Déconnexion
+        </a></li>
+    </ul>
     </header>
      <?= $content ?>
 </body>

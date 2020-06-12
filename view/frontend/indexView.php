@@ -7,9 +7,9 @@
 <section class="index_chapters">
     <div class="pagination">
         <?php foreach ($chapters as $chapter) { ?>
-            <div class="chapters_published">
-                <h3><?= $chapter['title'] ?></h3><br/>
-                <a href="index.php?action=chapter&id=<?= $chapter['id'] ?>">Lire</a>
+            <div class="chapters_published_home">
+                <h3><?= htmlspecialchars($chapter['title']) ?></h3><br/>
+                <a href="index.php?action=chapter&id=<?= $chapter['id'] ?>">Lire le chapitre</a>
             </div>
        <?php } ?>
        

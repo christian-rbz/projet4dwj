@@ -1,18 +1,23 @@
 <header class="index_header">
-    <a href="index.php?action=home"><h1>Accueil</h1></a>
-    <a href="index.php?action=logout"><h3>Déconnexion<h3></a> 
+    <ul>
+    <li><a href="index.php?action=home">Accueil</a></li>
+    <li><a href="index.php?action=logout">Déconnexion</a></li>
+    <ul>
 </header>
 
 <section class="header_admin">
+    <a class="nav_home_comments" href="index.php?action=admin">Admin</a></li>
+    <a class="nav_chapters" href="index.php?action=admin_comments">Commentaires</a>
+</section>
+
+<section class="header_admin">
     <h1>Chapitres</h1>
-    <a class="nav_home_comments" href="index.php?action=admin">Retour</a>
-    <a class="nav_chapters" href="index.php?action=admin_chapters">Chapitres</a>
 </section>
 
 <section class="admin_chapters">
 
     <h1>Ecrire un nouveau chapitre</h1>
-       <!-- message succès quand chapitre a été créé -->
+       <!-- Message succès quand chapitre a été créé -->
     <?php if(isset($_SESSION)) { 
             include('view/flashMessages.php');
     } ?>
@@ -29,7 +34,7 @@
     <?php if (!empty($chapter))
     { foreach ($chapter as $cle => $elements) { ?>
         <div class="chapters_published">
-        <h3><?= $elements['title'] ?></h3><br/>
+        <h3><?= htmlspecialchars($elements['title']) ?></h3><br/>
         <p><?= $elements['content'] ?></p>
         <a href="index.php?action=update&id=<?= $elements['id'] ?>">Modifier le texte </a><i class="fas fa-edit"></i>
         <a href="index.php?action=admin_chapters&id=<?= $elements['id'] ?>&deleteChapter">Supprimer le chapitre <i class="fas fa-times"></i></a></p><br/>

@@ -1,19 +1,24 @@
 
 <header class="index_header">
-    <a href="index.php?action=home"><h1>Accueil</h1></a>
-    <a href="index.php?action=logout"><h3>Déconnexion<h3></a> 
+    <ul>
+    <li><a href="index.php?action=home">Accueil</a></li>
+    <li><a href="index.php?action=logout">Déconnexion</a></li>
+    <ul>
 </header>
 
 <section class="header_admin">
-    <h1>Gérer les commentaires</h1>
-    <a class="nav_home_comments" href="index.php?action=admin">Retour</a>
+    <a class="nav_home_comments" href="index.php?action=admin">Admin</a>
     <a class="nav_chapters" href="index.php?action=admin_chapters">Chapitres</a>
+</section>
+
+<section class="header_admin">
+    <h1>Gérer les commentaires</h1>
 </section>
 
 <section class="admin_comments">
     <div class="show_all_comments">
         <h2>Tous les commentaires</h2>
-        <!-- message de succès quand le commentaire a été supprimé -->
+        <!-- Message de succès quand le commentaire a été supprimé -->
          <?php if(isset($_SESSION)) { 
             include('view/flashMessages.php');
         } ?>
@@ -21,11 +26,12 @@
         <?php if (!empty($comment))
             { foreach ($comment as $cle => $elements)
                 { ?>
-                    <p class="title_ref"><?= $elements['title'] ?></p><br/>
-                    <p>[ <?= $elements['date_comment'] ?> ] Par <?= $elements['pseudo'] ?>:
-                    <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&delete"><i class="fas fa-times"></i></a></p><br/>
-                    <p class="show_comment"><?= $elements['comment'] ?><br/>
-                    <hr class="inser_comment">
+                    <p class="title_ref"><?= $elements['title'] ?></p><br>
+                    <p>[ <?= $elements['date_comment'] ?> ] Par : <?= htmlspecialchars($elements['pseudo']) ?></p><br>
+                    <p class="show_comment"><?= htmlspecialchars($elements['comment']) ?></p><br>
+                    <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&delete">Supprimer le commentaire <i class="fas fa-times"></i></a><br>
+
+                    <hr class="inser_comment"><br>
                 <?php }
             } ?>
     </div>
@@ -36,12 +42,15 @@
         <?php if (!empty($commentSignaled))
             { foreach ($commentSignaled as $cle => $elements)
                 { ?>
-            <p class="title_ref"><?= $elements['title'] ?></p><br/>
-            <p>[ <?= $elements['date_comment'] ?> ] Par <?= $elements['pseudo'] ?>:
+            <p class="title_ref"><?= $elements['title'] ?></p><br>
+            <p>[ <?= $elements['date_comment'] ?> ] Par <?= htmlspecialchars($elements['pseudo']) ?>:
             </p><br/>
-            <p class="show_comment"><?= $elements['comment'] ?><br/>
+            <p class="show_comment"><?= htmlspecialchars($elements['comment']) ?><br>
 
-            <p> Nombre de signalement : <?= $elements['signaled'] ?><a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&deleteSignal"> <i class="fas fa-minus-square"></i></a></p><br/>
+            <p> Nombre de signalement : <?= $elements['signaled'] ?></p><br>
+
+            <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&deleteSignal"> Enlever le signalement <i class="fas fa-minus-square"></i></a><br/>
+            <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&delete">Supprimer le commentaire <i class="fas fa-times"></i></a><br>
 
             <hr class="inser_comment">
             <?php } 

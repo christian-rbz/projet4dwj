@@ -36,15 +36,18 @@
 
 <body>
 	<header>
-		<a href="index.php?action=home">Accueil</a>
-		<a href="index.php?action=biography">Biographie</a>
-		<?php if (isset($_SESSION['user'])) {
-			echo '<a href="index.php?action=admin">Admin</a>';
-		} else {
-		echo '<a href="index.php?action=login">Connexion</a>';
-		} 
+		<ul>
+			<li><a href="index.php?action=home">Accueil</a></li>
+			<li><a href="index.php?action=biography">Biographie</a></li>
+			<li><?php if (isset($_SESSION['user'])) {
+					echo '<a href="index.php?action=admin">Admin</a></li>';
+				} else {
+					echo '<a href="index.php?action=login">Connexion</a></li>';
+				} 
 		
 		?>
+	</ul>
+		
 	</header>
 	
 	<?= $content ?> 

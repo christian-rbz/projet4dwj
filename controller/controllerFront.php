@@ -1,17 +1,17 @@
 <?php
 
-// page accueil qui se met si les autres conditions ne sont pas faites
+// Page d'ACCUEIL qui se met si les autres conditions ne sont pas faites
 function home()
 {   
     $chapterManager = new ChaptersManager();
 
-    // compte les chapitres dans la table
+    // Compte le nombre de chapitres dans la table
     $nbChapter = $chapterManager->countChapters();
     $nbArt = $nbChapter;
     $perPage = 5;
     $nbPage = ceil($nbArt / $perPage);
 
-    // condition pour la pagination si il y'a trop de chapitres  sur 1 page
+    // Conditions pour la pagination : Si il y'a trop de chapitres sur 1 page
     if (isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p'] <= $nbPage) {
         $cPage = $_GET['p'];
     } else {
@@ -20,7 +20,7 @@ function home()
 
     $perPage2 = (($cPage - 1) * $perPage);
 
-    // chapitres par page
+    // Chapitres par page
     $chapters = $chapterManager->getChapterForPagination($perPage2, $perPage);
 
     ob_start();
@@ -29,14 +29,19 @@ function home()
     require("view/frontend/template.php");
 }
 
-// la fonction gere les chapitres et les commentaires en frontend
+// La fonction gere les chapitres et les commentaires en frontend
 function chapter()
 {
 
     $chapterManager = new ChaptersManager(); 
     $chapter = $chapterManager->get($_GET['id']); 
 
-    // creer un commentaire ordonné par l'utilisateur
+    // Si l'id du chapitre n'existe pas => retour page d'accueil 
+    if ($chapter == false) {
+        header('Location: index.php?action=home');
+    }
+
+    // Creer un commentaire ajouté par l'utilisateur
     if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) 
     {
         $comment = new Comments([
@@ -49,7 +54,7 @@ function chapter()
         $_SESSION['flash']['danger'] = 'Votre commentaire a bien été ajouté' . '<br/>'; 
         
         header('Location: index.php?action=chapter&id=' . $_GET['id']);
-        exit();
+
     }
 
 
@@ -57,7 +62,7 @@ function chapter()
     $commentedChapter = $commentChapter->getChapterComment($_GET['id']);
     
 
-    // ajout un signalement au commentaire dans la base de donnees
+    // Ajout un signalement au commentaire dans la base de donnees
     if (isset($_GET['signaled'])) {
         $comments = new Comments(['id' => $_GET['idComment']]);
 
@@ -68,7 +73,7 @@ function chapter()
 
     // Traitement de variables pour le chapterView
     $chapterId = $chapter->getId();
-    $chapterTitle = htmlspecialchars_decode($chapter->getTitle());
+    $chapterTitle = $chapter->getTitle();
     $chapterContent = $chapter->getContent();
     
 
@@ -78,41 +83,49 @@ function chapter()
     require("view/frontend/template.php");
 }
 
+
+// La fonction gere la connexion et l'affichage de la page login
 function login()
 {
-    // connexion à l'espace administrateur selon conditions
+    // Connexion à l'espace administrateur selon conditions
     if (!empty($_POST)) {
         $validation = false;
         $profil = new User(['email' => $_POST['email']]);
 
         $profilAcount = new UserManager();
+        
+        //Renvoie un User ou false (condition true ou false dans UserManager.php)
         $profilManager = $profilAcount->connectUser($profil); 
 
-        $emailVerify = $profilManager->getEmail();
+        if ($profilManager != false) {
+            
+            $emailVerify = $profilManager->getEmail();
 
-        // pour plus de securité le mdp d'origine est cripté en hash
-        $hash = $profilManager->getPassword(); 
+            // Pour plus de securité le mdp d'origine est cripté en hash
+            $hash = $profilManager->getPassword(); 
 
+            // Compare si le mdp cripté est le meme que le mdp tapé par l'utilisateur
+            if ($profil !== $emailVerify && password_verify($_POST['password'], $hash)) {
+                $validation = true;
+            } else {
+                $validation = false;
+            }
+           
+            if ($validation === true) {
+                $_SESSION['user'] = $profilManager->getId();
+                $_SESSION['identifiant'] = $profilManager->getIdentifiant();
+                $_SESSION['email'] = $profilManager->getEmail();
+                $_SESSION['password'] = $profilManager->getPassword();
 
-
-        // compare si le mdp cripté est le meme que le mdp tapé par l'utilisateur
-        if ($profil !== $emailVerify && password_verify($_POST['password'], $hash)) {
-            $validation = true;
-        } else {
-            $validation = false;
-        }
-       
-        if ($validation === true) {
-            $_SESSION['user'] = $profilManager->getId();
-            $_SESSION['identifiant'] = $profilManager->getIdentifiant();
-            $_SESSION['email'] = $profilManager->getEmail();
-            $_SESSION['password'] = $profilManager->getPassword();
-
-            header('Location: index.php?action=admin');
-            exit();
-        } else {
+                header('Location: index.php?action=admin');
+                exit();
+            } else {
+                $_SESSION['flash']['danger'] = "L'identifiant ou le mot de passe est incorrect." . '<br/>';
+            }
+        }else{
             $_SESSION['flash']['danger'] = "L'identifiant ou le mot de passe est incorrect." . '<br/>';
         }
+       
     } 
 
 
@@ -122,7 +135,8 @@ function login()
     require("view/frontend/template.php");
 }
 
-// affichage de la page biographie de l'auteur 
+
+// Affichage de la page biographie de l'auteur 
 function biography () {
     include('view/frontend/biography.php');
     $content = ob_get_clean();

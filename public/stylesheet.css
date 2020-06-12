@@ -1,23 +1,8 @@
 /* Reset CSS */ 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, section, summary,
-time, mark, audio, video {
+html, body {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	box-sizing: border-box;
 }
 
 
@@ -25,20 +10,14 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
 ol, ul {
-	list-style: none;
+	list-style-type: none;
 }
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -47,13 +26,16 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
+
 a:focus
 {
 outline:0;
 } 
+
 strong {
 	font-weight: 700;
 }
+
 em {
 	font-style: italic;
 }
@@ -77,32 +59,28 @@ header {
 	background-color: #2f3640;
 	width: 100%;
 	height: 50px;
-	padding-left: 1200px;
-	padding-top: 17px;
 	color: white;
 }
-header h1 {
+
+header ul {
+	display: flex; 
+	justify-content: center;
+	margin: auto;
+	padding: 0;
 	font-family: sans-serif;
 	font-weight: bold;
-	color: white;
+	font-size: 1.2em;
+	justify-content: space-around;
+	align-items: center;
 }
-header h2 {
-	padding-left: 20px;
-	font-family: sans-serif;
-	font-weight: bold;
-	color: white;
-}
-header h3 {
-	padding-left: 18px;
-}
+
 header a {
 	padding-left: 20px;
 	font-family: sans-serif;
 	font-weight: bold;
 }
-header a:hover,
-header h1:hover,
-header h2:hover {
+
+header a:hover {
 	color: #00a8ff; /*couleur bleu*/
 }
 
@@ -114,18 +92,6 @@ footer {
 	font-family: sans-serif;
 	color: white;
 }
-.footer_infos {
-	display: flex;
-	flex-direction: row;
-}
-.contact {
-	display: flex;
-	flex-direction: column;
-	font-weight: bold;
-	padding-top: 20px;
-	padding-left: 20px;
-	padding-bottom: 5px;
-}
 
 .copyright {
 	padding: 10px 40px;
@@ -133,7 +99,6 @@ footer {
 }
 
 /*----- Page Accueil -----*/
-
 
 
 .index_title  {
@@ -150,19 +115,19 @@ footer {
 	font-weight: bold;
 	font-size: 4em;
 	padding-top: 150px;
+	text-align: center;
 }
 .index_title h2 {
 	font-family: sans-serif;
 	font-size: 3em;
 	font-weight: bold;
-	padding-top: 50px;
-	padding-left: 300px;
+	text-align: center;
 }
 .index_title h3 {
 	font-family: sans-serif;
 	font-size: 2em;
 	padding-top: 10px;
-	padding-left: 300px;
+	text-align: center;
 }
 .index_chapters {
 	display: flex;
@@ -172,14 +137,23 @@ footer {
 	color: black;
 }
 .pagePagination {
-	padding-left: 72px;
 	margin-bottom: 20px;
 	text-align: center;
+}
+
+.pagePagination:hover {
+	color: #00a8ff;
 }
 
 .pagePagination a {
 	color: orange;
 }
+
+.pagePagination a:hover {
+	color: #00a8ff;
+}
+
+
 
 /*----- Page chapitre -----*/
 .chapters_header {
@@ -190,6 +164,7 @@ footer {
 	font-family: sans-serif;
 	padding-top: 50px;
 	height: 780px;
+	text-align: center;
 }
 .chapters_header h1,
 .chapters_header h2 {
@@ -199,12 +174,12 @@ footer {
 	font-size: 3em;
 	font-weight: bold;
 	margin: 0 auto;
-	padding-top: 50px;
+	padding-top: 100px;
 }
 .chapters_header h2 {
 	font-size: 2em;
 	margin: 0 auto;
-	padding-top: 20px;
+	padding-top: 50px;
 }
 #edit_chapters {
 	display: flex;
@@ -287,7 +262,35 @@ footer {
     margin: 20px 50px 60px 0;
 }
 
+#biographieTexte h2 {
+	margin-bottom: 0;
+}
+
 /*----- Elements pour pages chapitres et admin -----*/
+
+.chapters_published_home {
+	padding: 20px 10px;
+	margin: 10px auto; 
+	border: 2px solid lightgrey;
+	border-radius: 3px 3px 3px 3px;
+	width: 90%;	
+	text-align: center;
+}
+
+
+.chapters_published_home:hover {
+	background-color: gold;
+}
+
+.chapters_published_home a {
+	color: orangered; /*rouge*/
+}
+
+.chapters_published_home a:hover {
+	color: #00a8ff; /*bleu*/
+	font-weight: bolder;
+}
+
 .chapters_published {
 	padding: 20px 10px;
 	margin: 10px auto; 
@@ -298,8 +301,9 @@ footer {
 }
 
 .chapters_published a {
-	color: orange;
+	color: orangered; /*rouge*/
 }
+
 
 .chapters_published h3 {
 	font-weight: bold;
@@ -314,34 +318,40 @@ footer {
 	display: flex; 
 }
 
+
 /*----- Page Admin -----*/
+
 .header_admin {
-	padding-top: 80px;
 	border-bottom: 2px solid orange;
 	display: flex;
+	font-size: 1.2em;
 }
+
 
 .header_admin h1 {
 	margin: auto;
 	text-align: center;
 }
 
+.header_admin a {
+	margin: auto;
+}
+
+
 .admin_chapters h1,
 .admin_comments h1,
 .header_admin {
 	font-family: sans-serif; 
-	font-size: 1.8em;
+	font-size: 1.5em;
 	font-weight: bold;
 	color: #545454;
 	margin: 0 auto;
-	padding-left: 72px;
 	padding-bottom: 20px;
 	padding-top: 70px;
 }
 .navigation {
 	display: flex;
 	flex-direction: row; 
-	margin-left: 570px;
 	margin-top: 200px;
 }
 .navigation_icones,
@@ -365,9 +375,6 @@ footer {
 	padding-top: 10px;
 }
 .comments_link_title {
-	padding-top: 17px;
-}
-.profil_link_title {
 	padding-top: 17px;
 }
 
@@ -461,89 +468,10 @@ footer {
 .fa-times {
 	color: red;
 }
-.nav_home_comments {
-	margin-left: 700px;
-}
-
 
 
 .nav_chapters {
 	margin-left: 10px;
-}
-.title_ref {
-	padding-bottom: 10px;
-	font-size: 1.3em;
-	color: grey;
-}
-
-/*----- Page admin profil -----*/
-
-.header_admin_profil {
-	padding-top: 80px;
-	border-bottom: 2px solid orange;
-	display: flex;
-}
-
-.header_admin_profil h1 {
-	font-family: sans-serif;
-	font-size: 2.2em;
-	font-weight: bold;
-	color: #545454;
-	padding-left: 72px;
-	padding-bottom: 20px;
-}
-.nav_home_chapters_profil {
-	margin-left: 600px; 
-}
-.profil {
-	display: flex;
-	flex-direction: column;
-	padding-top: 50px;
-	padding-left: 150px;
-	font-family: sans-serif;
-}
-.profil h2 {
-	font-size: 1.5em;
-	color: darkgrey;
-	padding-bottom: 20px;
-}
-.profil p {
-	padding-left: 20px;
-	padding-bottom: 4px;
-}
-.modif {
-	display: flex;
-	flex-direction: column;
-	padding-top: 30px;
-	padding-left: 150px;
-}
-.sign_in_modif {
-	display: flex;
-	flex-direction: column;
-	font-size: 2em;
-	margin: 0 auto;
-	padding-top: 70px;
-	background-color: lightsteelblue;
-	border-radius: 3px;
-	padding: 40px 40px;
-	margin-top: 80px;
-	width: 400px;
-}
-.sign_in_modif input {
-	font-family: sans-serif;
-	margin-bottom: 5px;
-	color: orange;
-}
-.modif a {
-	font-family: 'poiret one','cursive';
-}
-#pw_message {
-	font-family: 'poiret one','cursive';
-	color: orange;
-	font-size: 1em;
-	margin-top: 10px;
-	margin-left: 545px;
-
 }
 
 
@@ -613,27 +541,24 @@ footer {
 	margin-top: 20px;
 }
 
-/*----- Page d'erreur -----*/
-.error {
-	padding-top: 300px;
-	padding-bottom: 300px;
-	font-family: sans-serif;
-	color: darkslategrey;
-	display: flex;
-	padding-left: 40%;
-}
-
 
 
 		/*-------------------------*/
 		/*----- MEDIA QUERIES -----*/
 		/*-------------------------*/
+		/*Ils sont classés par partie : 
+		Home Page, 
+		Page Chapitre, 
+		Page Login, 
+		Page Biographie,
+		Page Admin,
+		Page Admin Chapitre, 
+		Page update 
+		page Admin Commentaire */
 
 		/*----- Home Page -----*/
 		@media all and (min-width: 320px) and (max-width: 374px) {
-			header {
-				padding-left: 65px!important;
-			}
+
 			.index_header {
 				padding-left: 0px!important;
 			}
@@ -652,26 +577,16 @@ footer {
 				font-size: 3em;
 			}
 			.index_title h2 {
-				padding-left: 0px!important;
 				font-size: 2em;
 			}
 			.index_title h3 {
-				padding-left: 0px!important;
 				padding-top: 0px!important;
 				font-size: 1.5em;
 			}	
-			.pagePagination {
-				padding-left: 102px;
-			}
-			.footer_infos {
-				flex-direction: column;
-			}
 		}
 
 		@media all and (min-width: 375px) and (max-width: 424px) {
-			header {
-				padding-left: 100px!important;
-			}
+		
 			.index_header {
 				padding-left: 0px!important;
 			}
@@ -690,31 +605,19 @@ footer {
 				font-size: 3em;
 			}
 			.index_title h2 {
-				padding-left: 0px!important;
 				font-size: 2em;
 			}
 			.index_title h3 {
-				padding-left: 0px!important;
 				padding-top: 0px!important;
 				font-size: 1.5em;
 			}	
-			.pagePagination {
-				padding-left: 20px;
-			}
-			.contact {
-				padding-left: 38px;
-			}
-			.footer_infos {
-				flex-direction: column;
-			}
 		}
 
 		@media all and (min-width: 425px) and (max-width: 767px) {
-			header {
-				padding-left: 100px!important;
-			}
+		
 			.index_header {
 				padding-left: 0px!important;
+				text-align: center;
 			}
 			.index_header h1 {
 				font-size: 1.4em;
@@ -731,32 +634,17 @@ footer {
 				font-size: 3em;
 			}
 			.index_title h2 {
-				padding-left: 0px!important;
 				font-size: 2em;
 			}
 			.index_title h3 {
-				padding-left: 0px!important;
 				padding-top: 0px!important;
 				font-size: 1.5em;
 			}	
-			.pagePagination {
-				padding-left: 20px;
-			}
-			.contact {
-				padding-left: 38px;
-			}
-			.footer_infos {
-				flex-direction: column;
-			}
+		
 		}	
 
 		@media all and (min-width: 768px) and (max-width: 1024px) {
-			header {
-				padding-left: 530px!important;
-			}
-			/*.index_header {
-				padding-left: 0px!important;
-			}*/
+		
 			.index_header h1 {
 				font-size: 1.4em;
 				padding-left: 35px;
@@ -771,27 +659,17 @@ footer {
 				font-size: 3em;
 			}
 			.index_title h2 {
-				padding-left: 400px!important;
 				font-size: 2em;
 			}
 			.index_title h3 {
-				padding-left: 400px!important;
 				padding-top: 0px!important;
 				font-size: 1.5em;
 			}	
-			.pagePagination {
-				padding-left: 40px;
-			}
-			.contact {
-				padding-left: 100px;
-				padding-top: 20px;
-			}
+	
 		}
 
 		@media all and (min-width: 1025px) and (max-width: 1439px) {
-			header {
-				padding-left: 500px!important;
-			}
+	
 			.index_header {
 				margin: auto;
 			}
@@ -809,30 +687,20 @@ footer {
 				font-size: 3em;
 			}
 			.index_title h2 {
-				padding-left: 400px!important;
 				font-size: 2em;
 			}
 			.index_title h3 {
-				padding-left: 400px!important;
 				padding-top: 0px!important;
 				font-size: 1.5em;
 			}	
-			.pagePagination {
-				padding-left: 40px;
-			}
-			.contact {
-				padding-left: 100px;
-				padding-top: 20px;
-			}
+
+	
 		}
 
 		/*------ Page Chapitre ------*/
 		@media all and (min-width: 320px) and (max-width: 374px) {
 			.chapters_header {
 				height: 600px;
-			}
-			.chapters_header h1 {
-				padding-left: 20px;
 			}
 			#edit_chapters p {
 				margin-left: 0px!important;
@@ -846,9 +714,7 @@ footer {
 			.chapters_header {
 				height: 600px;
 			}
-			.chapters_header h1 {
-				padding-left: 20px;
-			}
+
 			#edit_chapters p {
 				margin-left: 0px!important;
 			}
@@ -860,9 +726,6 @@ footer {
 		@media all and (min-width: 425px) and (max-width: 767px) {
 			.chapters_header {
 				height: 600px;
-			}
-			.chapters_header h1 {
-				padding-left: 20px;
 			}
 			#edit_chapters p {
 				margin-left: 0px!important;
@@ -909,24 +772,33 @@ footer {
 			}
 		}
 
+		/*----- Biographie -----*/
+
+		@media all and (min-width: 320px) and (max-width: 1024px) {
+			#biographie {
+				display: block;
+			}
+			#jean {
+				display: block;
+				margin: auto;
+			}
+			#biographieTexte {
+				text-align: center;
+				display: block;
+				margin: auto;
+				padding: 0 60px;
+			}
+		}
+
+
 		/*----- Page Admin -----*/
 		@media all and (min-width: 320px) and (max-width: 374px) {
-			.index_header h1 {
-				padding-left: 53px!important;
-			}
 			header h1,
 			header h3 {
 				font-size: 1em!important; 
 			}
-			.header_admin {
-				padding-left: 10px;
-			}
-			.header_admin h1 {
-				font-size: 0.5em;
-				margin-top: 10px;
-			}
+
 			.navigation {
-				margin-left: 10px;
 				margin-top: 80px;
 			}
 			.navigation_title a {
@@ -954,7 +826,6 @@ footer {
 				margin-top: 10px;
 			}
 			.navigation {
-				margin-left: 10px;
 				margin-top: 80px;
 			}
 			.navigation_title a {
@@ -986,7 +857,6 @@ footer {
 				margin-top: 10px;
 			}
 			.navigation {
-				margin-left: 10px;
 				margin-top: 80px;
 			}
 			.navigation_title a {
@@ -1015,7 +885,6 @@ footer {
 				margin-top: 10px;
 			}
 			.navigation {
-				margin-left: 10px;
 				margin-top: 80px;
 			}
 			.navigation_title a {
@@ -1028,15 +897,9 @@ footer {
 
 		/*----- Page Admin Chapitre-----*/
 		@media all and (min-width: 320px) and (max-width: 375px) {
-			.nav_home_chapters {
-				margin-left: 150px;
-			}
 			.nav_home_chapters img,
 			.nav_comments img {
 				padding-top: 15px;
-			}
-			.nav_home_chapters {
-				padding-left: 60px;
 			}
 			.admin_chapters h1 {
 				padding-left: 10px;
@@ -1050,9 +913,6 @@ footer {
 		}
 
 		@media all and (min-width: 376px) and (max-width: 425px) {
-			.nav_home_chapters {
-				margin-left: 150px;
-			}
 			.nav_home_chapters img,
 			.nav_comments img {
 				padding-top: 15px;
@@ -1072,15 +932,9 @@ footer {
 		}
 
 		@media all and (min-width: 769px) and (max-width: 1024px) {
-			.nav_home_chapters {
-				margin-left: 150px;
-			}
 			.nav_home_chapters img,
 			.nav_comments img {
 				padding-top: 15px;
-			}
-			.nav_home_chapters {
-				padding-left: 700px;
 			}
 			.admin_chapters h1 {
 				padding-left: 10px;
@@ -1178,30 +1032,23 @@ footer {
 
 		/*----- Page admin commentaire -----*/
 		@media all and (min-width: 320px) and (max-width: 375px) {	
-			.nav_home_comments {
-				margin-left: 0px!important;
+
+			.header_admin h1 {
+				font-size: 1.5em;
 			}
 
-			.nav_home_comments img {
-				padding-left: 90px;
-			}
 			.admin_comments {
 				display: block;
 			}
 			.show_all_comments,
 			.comments_signal {
 				padding-top: 10px;
-				padding-left: 10px;
+				margin: auto;
+				padding-left: 0px;
 			}
 		}
 
 		@media all and (min-width: 376px) and (max-width: 425px) {	
-			.nav_home_comments {
-				margin-left: 0px!important;
-			}
-			.nav_home_comments img {
-				padding-left: 160px;
-			}
 			.admin_comments {
 				display: block;
 			}
@@ -1213,29 +1060,27 @@ footer {
 		}
 
 		@media all and (min-width: 426px) and (max-width: 768px) {	
-			.nav_home_comments {
-				margin-left: 0px!important;
+
+			.header_admin h1 {
+				font-size: 1.5em;
 			}
-			.nav_home_comments img {
-				padding-left: 480px;
-			}
+
 			.admin_comments {
 				display: block;
 			}
 			.show_all_comments,
 			.comments_signal {
 				padding-top: 10px;
-				padding-left: 10px;
+				margin: auto;
 			}
 		}
 
 		@media all and (min-width: 769px) and (max-width: 1024px) {	
-			.nav_home_comments {
-				margin-left: 0px!important;
+
+			.header_admin h1 {
+				font-size: 1.5em;
 			}
-			.nav_home_comments img {
-				padding-left: 750px;
-			}
+	
 			.admin_comments {
 				display: flex;
 			}
@@ -1246,132 +1091,4 @@ footer {
 			}
 		}
 
-		/*----- Page Admin profil -----*/
-		@media all and (min-width: 320px) and (max-width: 375px) {	
-			.header_admin_profil h1 {
-				font-size: 1.2em;
-				padding-left: 10px;
-				
-			}
-			.nav_home_chapters_profil {
-				margin-left: 0px!important;
-			}
-			.header_admin_profil img {
-				height: 26px;
-			}
-			.profil {
-				padding-left: 20px;
-			}
-			.modif {
-				padding-left: 40px;
-			}
-			.sign_in_modif {
-				width: 300px;
-				margin-top: 40px;
-			}
-			#pw_message,
-			#message_error,
-			#message_ok_new {
-				margin-left: 5px; 
-				padding-left: 5px;
-			}
-		}
-
-		@media all and (min-width: 376px) and (max-width: 425px) {	
-			.header_admin_profil h1 {
-				font-size: 1.2em;
-				padding-left: 10px;
-				
-			}
-			.nav_home_chapters_profil {
-				margin-left: 0px!important;
-			}
-			.nav_home_chapters_profil img {
-				padding-left: 15px;
-			}
-			.header_admin_profil img {
-				height: 26px;
-			}
-			.profil {
-				padding-left: 20px;
-			}
-			.modif {
-				padding-left: 40px;
-			}
-			.sign_in_modif {
-				width: 300px;
-				margin-top: 40px;
-			}
-			#pw_message,
-			#message_error,
-			#message_ok_new {
-				margin-left: 5px; 
-				padding-left: 5px;
-			}
-		}
-
-		@media all and (min-width: 426px) and (max-width: 768px) {	
-			.header_admin_profil h1 {
-				font-size: 1.2em;
-				padding-left: 10px;
-				
-			}
-			.nav_home_chapters_profil {
-				margin-left: 0px!important;
-			}
-			.nav_home_chapters_profil img {
-				padding-left: 340px;
-			}
-			.header_admin_profil img {
-				height: 26px;
-			}
-			.profil {
-				padding-left: 20px;
-			}
-			.modif {
-				padding-left: 40px;
-			}
-			.sign_in_modif {
-				width: 300px;
-				margin-top: 40px;
-			}
-			#pw_message,
-			#message_error,
-			#message_ok_new {
-				margin-left: 5px; 
-				padding-left: 5px;
-			}
-		}
-
-		@media all and (min-width: 769px) and (max-width: 1024px) {	
-			.header_admin_profil h1 {
-				font-size: 1.2em;
-				padding-left: 10px;
-				
-			}
-			.nav_home_chapters_profil {
-				margin-left: 0px!important;
-			}
-			.nav_home_chapters_profil img {
-				padding-left: 600px;
-			}
-			.header_admin_profil img {
-				height: 26px;
-			}
-			.profil {
-				padding-left: 20px;
-			}
-			.modif {
-				padding-left: 40px;
-			}
-			.sign_in_modif {
-				width: 300px;
-				margin-top: 40px;
-			}
-			#pw_message,
-			#message_error,
-			#message_ok_new {
-				margin-left: 5px; 
-				padding-left: 5px;
-			}
-		}
+	

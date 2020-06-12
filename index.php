@@ -35,6 +35,8 @@ if (isset($_GET['action'])) {
         logout();
     } elseif ($_GET['action'] == 'update') {
         update();
+    }else{
+        home();
     }
 } else {
     home();

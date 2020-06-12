@@ -78,6 +78,6 @@ class User
 
     public function setPassword($password)
     {
-        $this->_password = $password;
+        $this->_password = htmlspecialchars($password);
     }
 }

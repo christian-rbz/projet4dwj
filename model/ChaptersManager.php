@@ -8,7 +8,11 @@ class ChaptersManager extends Manager
         $req->execute([$id]);
         $chapter = $req->fetch(); 
         
+        if ($chapter){
         return new Chapters($chapter);  
+    } else {
+        return false;
+        }
     }
 
     public function getList()
