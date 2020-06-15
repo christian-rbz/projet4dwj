@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/504cd5157f.js"></script>
 
     <!-- Code TinyMCE pour le backend, rediger message-->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/68lwibtun0h4ri5ylyau717ps1odqoje8itfty00ym0dg59t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     
     <script>
         tinymce.init({

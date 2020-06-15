@@ -6,8 +6,8 @@
 
 <section class="edit_chapters">      
         <div class="chapters_published">                   
-            <h3><?= $chapterTitle; ?></h3><br/>
-            <p><?= $chapterContent; ?></p><br/>
+            <h3><?= htmlspecialchars($chapterTitle); ?></h3><br/>
+            <?= $chapterContent; ?><br/>
             <hr>
 
             <p class="comments_publication" id="comm">Commentaires: </p>
@@ -30,7 +30,7 @@
     <form class="comments_form" action="index.php?action=chapter&id=<?= $_GET['id'] ?>#comm" method="post">
         <input class="pseudo" type="text" name="pseudo" placeholder="Pseudo" id="pseudo"><br/>
         <textarea class="comment" name="comment" placeholder="Votre commentaire" id="comment" cols="30" rows="10"></textarea><br/>
-        <input class="submit" type="submit" name="submit" placeholder="Envoyer" id="submit"><br/>
+        <input class="submit" type="submit" name="submit" id="submit"><br/>
     </form>                
 </div>
 

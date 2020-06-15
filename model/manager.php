@@ -1,5 +1,6 @@
 <?php
 
+// Manager pour le localhost
 class Manager 
 {
     public function __construct()
@@ -15,3 +16,6 @@ class Manager
         } 
     }
 }
+
+// Dans le Manager pour le site les informations sont différentes
+// $this->_db = new PDO('mysql:host=db5000540898.hosting-data.io;dbname=dbs519342;charset=utf8', 'dbu904496', 'Alaska56@',

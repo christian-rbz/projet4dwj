@@ -139,7 +139,7 @@ function update()
 
         header('Location: index.php?action=admin_chapters&id=' . $_GET['id']);
         exit();
-    }
+    } 
 
     // Creation des variables pour la updateView
     $chapterTitleUpdate = $chapter->getTitle();

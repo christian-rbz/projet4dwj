@@ -1,6 +1,6 @@
 <section>
 <div id="biographie">
-<img id="jean" src="public/images/jean.jpg">
+<img id="jean" src="public/images/jean.jpg" alt="jeanforteroche">
 <div id="biographieTexte">
 <h2>Jean Forteroche</h2><br>
 <p>

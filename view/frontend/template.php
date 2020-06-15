@@ -43,23 +43,21 @@
 					echo '<a href="index.php?action=admin">Admin</a></li>';
 				} else {
 					echo '<a href="index.php?action=login">Connexion</a></li>';
-				} 
-		
+				} 		
 		?>
 	</ul>
 		
 	</header>
 	
 	<?= $content ?> 
-</body>
+
 
 <footer>
 	
-	</div>
 	<div class="copyright">
 		<p>Copyright © Jean Forteroche - 2020 - Tous droits réservés - Projet OpenClassrooms Christian Rbz</p>
 	</div>
 </footer>
-
+</body>
 </html>
 

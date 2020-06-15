@@ -244,6 +244,7 @@ footer {
     height: 300px;
     border-radius: 25px;
     margin: 30px 50px;
+    max-width: 100%;
 }
 
 #biographie {
@@ -252,6 +253,7 @@ footer {
     padding-top: 70px;
     padding-bottom: 80px;
 }
+
 
 #biographie h2 {
 	font-weight: bold;
@@ -312,7 +314,6 @@ footer {
 }
 .chapters_published p {
 	margin-bottom: 15px;
-	font-weight: normal;
 }
 .header_admin {
 	display: flex; 
@@ -348,6 +349,7 @@ footer {
 	margin: 0 auto;
 	padding-bottom: 20px;
 	padding-top: 70px;
+	padding-left: 50px;
 }
 .navigation {
 	display: flex;
@@ -359,9 +361,7 @@ footer {
 	display: flex;
 	flex-direction: column;
 }
-.navigation_icones img {
-	height: 40px;
-}
+
 .navigation_title {
 	display: flex;
 	flex-direction: column;
@@ -391,7 +391,8 @@ footer {
 }
 .chapter_form {
 	width: 90%;
-	margin-left: 72px;
+	max-width: 90%;
+	margin: auto;
 }
 .title {
 	margin-bottom: 20px;
@@ -474,12 +475,17 @@ footer {
 	margin-left: 10px;
 }
 
+.title_ref {
+	font-size: 1.2em;
+	font-weight: bolder;
+}
+
 
 /*----- Page pour le login -----*/
 .connexion_header {
 	font-family: sans-serif;
 	padding-top: 50px;
-	height: 150px;
+	height: 100px;
 	color: black;
 }
 .connexion_header h1 {
@@ -705,9 +711,7 @@ footer {
 			#edit_chapters p {
 				margin-left: 0px!important;
 			}
-			.nav_home_chapters img {
-				padding-top: 8px!important;
-			}
+		
 		}
 
 		@media all and (min-width: 375px) and (max-width: 424px) {
@@ -718,9 +722,7 @@ footer {
 			#edit_chapters p {
 				margin-left: 0px!important;
 			}
-			.nav_home_chapters img {
-				padding-top: 8px!important;
-			}
+
 		}
 
 		@media all and (min-width: 425px) and (max-width: 767px) {
@@ -730,9 +732,7 @@ footer {
 			#edit_chapters p {
 				margin-left: 0px!important;
 			}
-			.nav_home_chapters img {
-				padding-top: 8px!important;
-			}
+	
 		}
 
 		/*------ Page Login -----*/
@@ -897,10 +897,7 @@ footer {
 
 		/*----- Page Admin Chapitre-----*/
 		@media all and (min-width: 320px) and (max-width: 375px) {
-			.nav_home_chapters img,
-			.nav_comments img {
-				padding-top: 15px;
-			}
+
 			.admin_chapters h1 {
 				padding-left: 10px;
 				padding-top: 20px!important;
@@ -913,10 +910,8 @@ footer {
 		}
 
 		@media all and (min-width: 376px) and (max-width: 425px) {
-			.nav_home_chapters img,
-			.nav_comments img {
-				padding-top: 15px;
-			}
+
+
 			.nav_home_chapters {
 				padding-left: 90px;
 			}
@@ -932,10 +927,7 @@ footer {
 		}
 
 		@media all and (min-width: 769px) and (max-width: 1024px) {
-			.nav_home_chapters img,
-			.nav_comments img {
-				padding-top: 15px;
-			}
+	
 			.admin_chapters h1 {
 				padding-left: 10px;
 				padding-top: 20px!important;
@@ -956,10 +948,7 @@ footer {
 			.nav_home_update {
 				margin-left: 10px;
 			}
-			.nav_home_update img,
-			.nav_chapters img {
-				height: 30px;
-			}
+	
 			.chapter_form_update {
 				margin-top: 50px;
 				margin-left: 15px;
@@ -975,13 +964,7 @@ footer {
 			.nav_home_update {
 				margin-left: 10px;
 			}
-			.nav_home_update img,
-			.nav_chapters img {
-				height: 30px;
-			}
-			.nav_home_update img {
-				padding-left: 90px; 
-			}
+
 			.chapter_form_update {
 				margin-top: 50px;
 				margin-left: 15px;
@@ -996,13 +979,7 @@ footer {
 			.nav_home_update {
 				margin-left: 10px;
 			}
-			.nav_home_update img,
-			.nav_chapters img {
-				height: 30px;
-			}
-			.nav_home_update img {
-				padding-left: 450px; 
-			}
+
 			.chapter_form_update {
 				margin-top: 50px;
 				margin-left: 15px;
@@ -1017,13 +994,7 @@ footer {
 			.nav_home_update {
 				margin-left: 10px;
 			}
-			.nav_home_update img,
-			.nav_chapters img {
-				height: 30px;
-			}
-			.nav_home_update img {
-				padding-left: 700px; 
-			}
+
 			.chapter_form_update {
 				margin-top: 50px;
 				margin-left: 15px;
@@ -1049,6 +1020,10 @@ footer {
 		}
 
 		@media all and (min-width: 376px) and (max-width: 425px) {	
+
+			.header_admin h1 {
+				font-size: 1.5em;
+			}
 			.admin_comments {
 				display: block;
 			}

@@ -138,6 +138,7 @@ function login()
 
 // Affichage de la page biographie de l'auteur 
 function biography () {
+    ob_start();
     include('view/frontend/biography.php');
     $content = ob_get_clean();
     require("view/frontend/template.php");

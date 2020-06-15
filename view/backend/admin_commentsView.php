@@ -26,7 +26,7 @@
         <?php if (!empty($comment))
             { foreach ($comment as $cle => $elements)
                 { ?>
-                    <p class="title_ref"><?= $elements['title'] ?></p><br>
+                    <p class="title_ref"><?= htmlspecialchars($elements['title']) ?></p><br>
                     <p>[ <?= $elements['date_comment'] ?> ] Par : <?= htmlspecialchars($elements['pseudo']) ?></p><br>
                     <p class="show_comment"><?= htmlspecialchars($elements['comment']) ?></p><br>
                     <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&delete">Supprimer le commentaire <i class="fas fa-times"></i></a><br>
@@ -42,7 +42,7 @@
         <?php if (!empty($commentSignaled))
             { foreach ($commentSignaled as $cle => $elements)
                 { ?>
-            <p class="title_ref"><?= $elements['title'] ?></p><br>
+            <p class="title_ref"><?= htmlspecialchars($elements['title']) ?></p><br>
             <p>[ <?= $elements['date_comment'] ?> ] Par <?= htmlspecialchars($elements['pseudo']) ?>:
             </p><br/>
             <p class="show_comment"><?= htmlspecialchars($elements['comment']) ?><br>

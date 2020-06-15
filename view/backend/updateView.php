@@ -1,6 +1,6 @@
 <section class="header_admin">
     <a class="nav_home_update" href="index.php?action=admin">Admin</a>
-    <a class="nav_chapters" href="index.php?action=admin_chapters">Chapitres</a><
+    <a class="nav_chapters" href="index.php?action=admin_chapters">Chapitres</a>
 </section>
 <section class="header_admin">
 	<h1>Modifier un chapitre</h1>
