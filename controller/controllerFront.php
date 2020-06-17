@@ -105,7 +105,7 @@ function login()
             $hash = $profilManager->getPassword(); 
 
             // Compare si le mdp cripté est le meme que le mdp tapé par l'utilisateur
-            if ($profil == $emailVerify && password_verify($_POST['password'], $hash)) {
+            if ($profil = $emailVerify && password_verify($_POST['password'], $hash)) {
                 $validation = true;
             } else {
                 $validation = false;
