@@ -12,6 +12,10 @@
 
             <p class="comments_publication" id="comm">Commentaires: </p>
 
+             <?php if(isset($_SESSION)) { 
+                include('view/flashMessages.php');
+                } ?>
+
             <?php foreach ($commentedChapter as $cle => $elements) { ?>
                 
                 <p>[ <?= $elements['date_comment'] ?> ] Par <?= htmlspecialchars($elements['pseudo']) ?> (<a href="index.php?action=chapter&id=<?= $chapterId ?>&idComment=<?= $elements['id'] ?>&signaled#comm" class="signal">Signaler</a>): </p><br/> 
@@ -20,9 +24,7 @@
                     } ?>   
                     
                 <?php }    ?> 
-                <?php if(isset($_SESSION)) { 
-                include('view/flashMessages.php');
-                } ?>
+               
         </div>
 
 <div class="comments">

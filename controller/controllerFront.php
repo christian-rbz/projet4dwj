@@ -51,9 +51,8 @@ function chapter()
         ]);
         $commentChapter = new CommentsManager();
         $commentChapter->addComment($comment);
+
         $_SESSION['flash']['danger'] = 'Votre commentaire a bien été ajouté' . '<br/>'; 
-        
-        header('Location: index.php?action=chapter&id=' . $_GET['id']);
 
     }
 
@@ -64,10 +63,14 @@ function chapter()
 
     // Ajout un signalement au commentaire dans la base de donnees
     if (isset($_GET['signaled'])) {
+        // $_SESSION['flash']['danger'] = 'Ce commentaire a bien été signalé à l\'administrateur' . '<br/>';  
+
         $comments = new Comments(['id' => $_GET['idComment']]);
 
         $commentChapter->signalComment($comments);
-        $_SESSION['flash']['danger'] = 'Ce commentaire a bien été signalé à l\'administrateur' . '<br/>';  
+        $_SESSION['flash']['danger'] = 'Ce commentaire a bien été signalé à l\'administrateur' . '<br/>';   
+       
+        // header('Location: index.php?action=chapter&id=' . $_GET['id']);
 
     }
 

@@ -36,7 +36,7 @@ class CommentsManager extends Manager
 
     public function deleteSignal($comments)
     {
-        $req_signal = $this->_db->prepare('UPDATE comments SET signaled =signaled-1 WHERE id = :idChapter');
+        $req_signal = $this->_db->prepare('UPDATE comments SET signaled = 0 WHERE id = :idChapter');
         $req_signal->execute(['idChapter' => $comments->getId()]);
     } 
 
@@ -45,13 +45,6 @@ class CommentsManager extends Manager
     {
         $req_delete = $this->_db->prepare('DELETE FROM comments WHERE id = :id');
         $req_delete->execute(['id' => $commentsDelete->getId()]);
-    }
-
-    // On supprime les commentaires du chapitre supprimé par l'administrateur
-      public function deleteAllCommentsChapter($chapterId)
-    {
-        $req_delete = $this->_db->prepare('DELETE FROM comments WHERE id_chapter = :chapterId');
-        $req_delete->execute(['chapterId' => $chapterId]);
     }
 
 

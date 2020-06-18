@@ -37,13 +37,9 @@ function admin_chapters()
     if (isset($_GET['deleteChapter']) ) {
         
         $chapterDelete = new Chapters(['id' => $_GET['id']]);
-        
-        $chapitreManager = new ChaptersManager();
-        $commentsManager = new CommentsManager();
 
-        $reponse = $commentsManager->deleteAllCommentsChapter($chapterDelete->getId());
-       
-        $chapitreManager->deleteChapter($chapterDelete);
+        $chaptersManager = new ChaptersManager();
+        $chaptersManager->deleteChapter($chapterDelete);
 
         $_SESSION['flash']['danger'] = 'Le chapitre a bien été supprimé' . '<br/>';  
 

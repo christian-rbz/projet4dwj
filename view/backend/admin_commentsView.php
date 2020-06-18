@@ -49,7 +49,7 @@
 
             <p> Nombre de signalement : <?= $elements['signaled'] ?></p><br>
 
-            <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&deleteSignal"> Enlever le signalement <i class="fas fa-minus-square"></i></a><br/>
+            <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&deleteSignal"> Enlever les signalements <i class="fas fa-minus-square"></i></a><br/>
             <a href="index.php?action=admin_comments&id=<?= $elements['id'] ?>&delete">Supprimer le commentaire <i class="fas fa-times"></i></a><br>
 
             <hr class="inser_comment">
